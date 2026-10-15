@@ -1,0 +1,57 @@
+{
+"aturdana": [
+"/img/gallery/aturdana-1.webp",
+"/img/gallery/aturdana-2.webp",
+"/img/gallery/aturdana-3.webp",
+"/img/gallery/aturdana-4.webp"
+],
+"listanime": [
+"/img/gallery/listanime-1.webp",
+"/img/gallery/listanime-2.webp"
+],
+"apotek": [
+"/img/gallery/apotek-1.webp",
+"/img/gallery/apotek-2.webp",
+"/img/gallery/apotek-3.webp",
+"/img/gallery/apotek-4.webp"
+],
+"stockup": [
+"/img/gallery/stockup-1.webp",
+"/img/gallery/stockup-2.webp",
+"/img/gallery/stockup-3.webp",
+"/img/gallery/stockup-4.webp"
+],
+"media-cms": [
+"/img/gallery/media-cms-1.webp",
+"/img/gallery/media-cms-2.webp",
+"/img/gallery/media-cms-3.webp"
+],
+"devlens": [
+"/img/gallery/devlens-1.webp"
+],
+"backend-snapcal": [
+"/img/gallery/backend-snapcal-1.webp"
+],
+"yudevlanding": [
+"/img/gallery/yudevlanding-1.webp"
+],
+"story-app-scss": [
+"/img/gallery/story-app-scss-1.webp"
+],
+"personal-notes": [
+"/img/gallery/personal-notes-1.webp",
+"/img/gallery/personal-notes-2.webp",
+"/img/gallery/personal-notes-3.webp",
+"/img/gallery/personal-notes-4.webp"
+],
+"newyear": [
+"/img/gallery/newyear-1.webp"
+],
+  "portfolio-v1": [
+    "/img/gallery/portfolio-v1-1.webp",
+    "/img/gallery/portfolio-v1-2.webp"
+  ],
+  "lumimi": [
+    "/img/gallery/lumimi-1.webp"
+  ]
+}

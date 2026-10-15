@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id" data-lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Farel Yuda Pratama - Developer multi-disiplin, Jakarta Timur</title>
+<meta name="description" content="Portofolio Farel Yuda Pratama. Android native (Kotlin, Jetpack Compose), web & backend. Alumni Bangkit Academy 2024. Jakarta Timur." />
+<meta name="author" content="Farel Yuda Pratama" />
+<meta name="color-scheme" content="light dark" />
+<link rel="canonical" href="https://farel.yudev.my.id/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://farel.yudev.my.id/" />
+<meta property="og:title" content="Farel Yuda Pratama - Developer multi-disiplin" />
+<meta property="og:description" content="Android native (Kotlin, Jetpack Compose), web & backend. Alumni Bangkit Academy 2024. Jakarta Timur." />
+<meta property="og:image" content="https://farel.yudev.my.id/img/avatar.png" />
+<meta property="og:locale" content="id_ID" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Farel Yuda Pratama - Developer multi-disiplin" />
+<meta name="twitter:description" content="Android native, web & backend. Alumni Bangkit Academy 2024." />
+<meta name="twitter:image" content="https://farel.yudev.my.id/img/avatar.png" />
+
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/img/favicon-64.png" sizes="64x64" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/src/style.css" /></noscript>
+<style>
+:root{--paper:#f0e8d8;--paper-2:#e8ddc7;--ink:#15223f;--ink-soft:#5a5f6b;--accent:#c0442e;--accent-2:#e0a33a;--rule:rgba(21,34,63,0.22);--rule-2:rgba(21,34,63,0.5);--f-display:"Fraunces",Georgia,serif;--f-body:"Space Grotesk","Segoe UI",system-ui,sans-serif;--f-mono:"JetBrains Mono",Consolas,monospace;--maxw:1180px;--pad:clamp(1.2rem,4vw,4rem);color-scheme:light}
+[data-theme="dark"]{--paper:#11182b;--paper-2:#19223a;--ink:#ece3d0;--ink-soft:#9aa2b2;--accent:#e8674d;--accent-2:#f0b84a;--rule:rgba(236,227,208,0.2);--rule-2:rgba(236,227,208,0.48);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:clamp(1rem,0.6vw + 0.9rem,1.08rem);line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(var(--rule) 0.6px,transparent 0.6px);background-size:7px 7px;overflow-x:hidden}
+a{color:inherit}
+.masthead{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:1.5rem;padding:0.7rem var(--pad);background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(6px);border-bottom:1.5px solid var(--ink)}
+.masthead__logo{font-family:var(--f-display);font-weight:900;font-size:1.3rem;letter-spacing:0.04em;text-decoration:none;white-space:nowrap}
+</style>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+    try {
+      var l = localStorage.getItem('lang');
+      if (!l) l = (navigator.language || 'id').toLowerCase().indexOf('id') === 0 ? 'id' : 'en';
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l;
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<div class="reader" aria-hidden="true"></div>
+
+<!-- preview gambar melayang saat hover kartu proyek (diatur lewat main.js) -->
+<div class="peek" aria-hidden="true" hidden>
+  <div class="peek__frame">
+    <div class="peek__shot"><img class="peek__img" alt="" decoding="async" /></div>
+  </div>
+  <span class="peek__tag"></span>
+</div>
+
+<!-- modal lightbox untuk galeri proyek -->
+<span class="flag-cursor" aria-hidden="true" data-i18n="work.zoom">Lihat</span>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeri proyek" hidden>
+  <div class="lightbox__ink" aria-hidden="true"></div>
+  <div class="lightbox__bg" aria-hidden="true"></div>
+  <button class="lightbox__close" type="button" aria-label="Tutup galeri">Tutup &times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Sebelumnya">&lsaquo;</button>
+  <figure class="lightbox__stage">
+    <div class="lightbox__frame">
+      <span class="lightbox__corner lightbox__corner--tl" aria-hidden="true"></span>
+      <span class="lightbox__corner lightbox__corner--tr" aria-hidden="true"></span>
+      <span class="lightbox__corner lightbox__corner--bl" aria-hidden="true"></span>
+      <span class="lightbox__corner lightbox__corner--br" aria-hidden="true"></span>
+      <div class="lightbox__shot">
+        <img class="lightbox__img" alt="" draggable="false" />
+        <span class="lightbox__glare" aria-hidden="true"></span>
+      </div>
+    </div>
+    <figcaption class="lightbox__cap"><span class="lightbox__title"></span><span class="lightbox__count"></span><a class="lightbox__open" target="_blank" rel="noopener" data-i18n="lightbox.open">Buka proyek &#8599;</a></figcaption>
+    <div class="lightbox__foot">
+      <div class="lightbox__dots"></div>
+    </div>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Berikutnya">&rsaquo;</button>
+</div>
+
+<div class="edge" aria-hidden="true">
+  <span class="edge__mark edge__mark--tl"></span>
+  <span class="edge__mark edge__mark--tr"></span>
+  <span class="edge__mark edge__mark--bl"></span>
+  <span class="edge__mark edge__mark--br"></span>
+</div>
+
+<header class="masthead">
+  <a href="#top" class="masthead__logo">F.Y.P<span>&nbsp;</span></a>
+  <nav class="masthead__nav" aria-label="Daftar isi">
+    <a href="#kerja"><i>01</i> <span data-i18n="nav.work">Karya</span></a>
+    <a href="#spek"><i>02</i> <span data-i18n="nav.skills">Keahlian</span></a>
+    <a href="#jalan"><i>03</i> <span data-i18n="nav.road">Perjalanan</span></a>
+    <a href="#kontak"><i>04</i> <span data-i18n="nav.contact">Kontak</span></a>
+  </nav>
+  <button class="masthead__lang" type="button" aria-label="Ganti bahasa Indonesia/Inggris">
+    <span class="masthead__lang-label">EN</span>
+  </button>
+  <button class="masthead__theme" type="button" aria-label="Ganti tema terang/gelap">
+    <span class="masthead__theme-dot"></span><span class="masthead__theme-label">Siang</span>
+  </button>
+  <button class="masthead__burger" type="button" aria-expanded="false" aria-controls="menu-seluler" aria-label="Buka menu"><span data-i18n="nav.menu">Isi</span> &rsaquo;</button>
+</header>
+
+<!-- menu navigasi seluler (drawer) -->
+<div class="sheet" id="menu-seluler" role="dialog" aria-modal="true" aria-label="Menu" inert>
+  <button class="sheet__close" type="button" aria-label="Tutup menu"><span data-i18n="nav.close">Tutup</span> &times;</button>
+  <a href="#kerja"><i>01</i> <span data-i18n="nav.work">Karya</span></a>
+  <a href="#spek"><i>02</i> <span data-i18n="nav.skills">Keahlian</span></a>
+  <a href="#jalan"><i>03</i> <span data-i18n="nav.road">Perjalanan</span></a>
+  <a href="#kontak"><i>04</i> <span data-i18n="nav.contact">Kontak</span></a>
+</div>
+
+<main id="top">
+
+  <section class="cover">
+    <p class="cover__kicker"><span>Jakarta · UTC+7</span><span class="cover__open" data-i18n="cover.open">Open to work</span></p>
+
+    <h1 class="cover__name" aria-label="Farel Yuda Pratama">
+      <span class="cover__line"><span>Farel</span></span>
+      <span class="cover__line cover__line--yuda"><span>Yuda</span></span>
+      <span class="cover__line"><span>Pratama</span></span>
+    </h1>
+
+    <div class="cover__body">
+      <p class="cover__role" data-i18n="cover.role">Developer multi&#8209;disiplin - Android native, web &amp; backend.</p>
+      <p class="cover__intro" data-i18n="cover.intro">Aku bangun aplikasi Android dengan Kotlin dan Jetpack Compose, sekaligus kerjakan web dan backend-nya. Lulusan Teknik Informatika 2025, alumni Bangkit Academy 2024.</p>
+      <p class="cover__cta">
+        <a class="btn btn--fill" href="#kerja" data-i18n="cover.cta_work">Lihat 16 proyek</a>
+        <a class="btn" href="/cv-farel-yuda-pratama.pdf" data-i18n="cover.cta_cv">Unduh CV</a>
+      </p>
+    </div>
+
+    <figure class="cover__photo">
+      <img src="/img/farel.png" alt="Potret Farel Yuda Pratama" width="433" height="577" />
+      <figcaption data-i18n="cover.caption">fig.&nbsp;1 - potret penulis</figcaption>
+    </figure>
+
+    <p class="cover__scroll" aria-hidden="true" data-i18n="cover.scroll">Gulir ke bawah &#8595;</p>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>v2019 magang engineering</span><span>&bull;</span>
+      <span>v2021 kuliah informatika</span><span>&bull;</span>
+      <span>v2024 bangkit academy</span><span>&bull;</span>
+      <span>v2025 lulus &amp; rilis SnapCal</span><span>&bull;</span>
+      <span>v2026 open to work</span><span>&bull;</span>
+      <span>v2019 magang engineering</span><span>&bull;</span>
+      <span>v2021 kuliah informatika</span><span>&bull;</span>
+      <span>v2024 bangkit academy</span><span>&bull;</span>
+      <span>v2025 lulus &amp; rilis SnapCal</span><span>&bull;</span>
+      <span>v2026 open to work</span><span>&bull;</span>
+    </div>
+  </div>
+
+  <!-- 01 - Bagian Karya Pilihan -->
+  <section class="work" id="kerja">
+    <div class="sechead">
+      <span class="sechead__no">01</span>
+      <h2 class="sechead__title" data-i18n="work.title">Karya pilihan</h2>
+      <span class="sechead__meta" data-i18n="work.meta">Selected work / 16 repositori</span>
+    </div>
+
+    <!-- proyek unggulan: SnapCal (skripsi Android + Web) -->
+    <article class="flag reveal">
+      <div class="flag__head">
+        <h3>SnapCal</h3>
+        <p class="stamp" data-i18n="work.snapcal_stamp">Skripsi · Android + Web · Live</p>
+      </div>
+      <div class="flag__shots" data-gallery="snapcal" data-images="/img/s1.avif,/img/s3.avif,/img/s2.avif" data-title="SnapCal" data-href="https://snapcal.yudev.my.id/" tabindex="0" role="button" aria-label="Buka galeri SnapCal">
+        <img src="/img/s1.avif" alt="SnapCal: daftar entri makanan harian dengan foto dan jumlah kalori" loading="lazy" />
+        <img src="/img/s3.avif" alt="SnapCal: layar analisis foto makanan, pilihan metode YOLO, Gemini, atau Groq" loading="lazy" />
+        <img src="/img/s2.avif" alt="SnapCal: detail makanan Nasi Kuning dengan donut chart nutrisi" loading="lazy" />
+      </div>
+      <div class="flag__text">
+        <p class="flag__lede" data-i18n="work.snapcal_lede">Aplikasi kalori &amp; nutrisi berbasis AI: foto makananmu, model mendeteksi isinya, estimasi kalorinya bisa dikoreksi sebelum masuk catatan. Android-nya Compose penuh, versi web-nya live.</p>
+        <ul class="changelog">
+          <li data-i18n="work.snapcal_1">Deteksi makanan dari foto: model YOLO lokal, atau Gemini &amp; Groq sebagai layanan AI.</li>
+          <li data-i18n="work.snapcal_2">Hasil analisis bisa dikoreksi manual: waktu makan, nama, dan berat.</li>
+          <li data-i18n="work.snapcal_3">Chat AI nutritionist dengan riwayat obrolan.</li>
+          <li data-i18n="work.snapcal_4">Ringkasan asupan harian &amp; mingguan dalam grafik.</li>
+          <li data-i18n="work.snapcal_5">Kalender riwayat makan + notifikasi Firebase.</li>
+        </ul>
+        <p class="tags">Kotlin · Jetpack Compose · Material 3 · Room · Retrofit · CameraX · Firebase · Gemini API · YOLO</p>
+        <p class="flag__links">
+          <a href="https://github.com/farelyudapratama/SnapCal-Firebase-Gemini" data-i18n="work.snapcal_link_android">Kode Android</a>
+          <a href="https://snapcal.yudev.my.id/" data-i18n="work.snapcal_link_web">Coba versi web</a>
+          <a href="https://github.com/farelyudapratama/backend-snapcal" data-i18n="work.snapcal_link_backend">Backend</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- proyek unggulan: Lumimi (desktop Live2D companion) -->
+    <article class="flag flag--alt reveal">
+      <div class="flag__head">
+        <h3>Lumimi</h3>
+        <p class="stamp" data-i18n="work.lumimi_stamp">Desktop · Windows · Live2D</p>
+      </div>
+      <figure class="flag__shots flag__shots--solo" data-gallery="lumimi" data-images="/img/gallery/lumimi-1.webp" data-title="Lumimi" data-href="https://github.com/farelyudapratama/Lumimi" tabindex="0" role="button" aria-label="Buka galeri Lumimi" style="margin:0">
+        <span class="flag__corner flag__corner--tl" aria-hidden="true"></span>
+        <span class="flag__corner flag__corner--tr" aria-hidden="true"></span>
+        <span class="flag__corner flag__corner--bl" aria-hidden="true"></span>
+        <span class="flag__corner flag__corner--br" aria-hidden="true"></span>
+        <div class="flag__plate">
+          <img src="/img/gallery/lumimi-1.webp" alt="Lumimi: karakter Live2D di desktop Windows" loading="lazy" draggable="false" />
+          <span class="flag__curtain" aria-hidden="true"></span>
+          <span class="flag__glare" aria-hidden="true"></span>
+        </div>
+      </figure>
+      <div class="flag__text flag__text--wide">
+        <p class="flag__lede" data-i18n="work.lumimi_lede">Teman Live2D di desktop - model lokal (offline) maupun cloud API: ngobrol lewat teks atau suara, karakternya bereaksi sesuai percakapan, lalu idle dengan ocehan sendiri. Tiga mode tanpa restart: AI VTuber untuk streaming, panel assistant, atau desktop pet transparan.</p>
+        <ul class="changelog">
+          <li data-i18n="work.lumimi_1">Semua model Cubism 4/5 didukung, kemampuannya dideteksi otomatis.</li>
+          <li data-i18n="work.lumimi_2">LLM, TTS &amp; STT bisa model lokal (offline) maupun cloud API - kamu pilih. Mode lokal: tak ada data yang keluar.</li>
+          <li data-i18n="work.lumimi_3">Implementasi dibantu AI.</li>
+        </ul>
+        <p class="tags">Rust · TypeScript · PixiJS 8 · Cubism SDK</p>
+        <p class="flag__links"><a href="https://github.com/farelyudapratama/Lumimi" data-i18n="work.lumimi_link">Kode di GitHub</a></p>
+      </div>
+    </article>
+
+    <!-- proyek Android native (Kotlin) -->
+    <div class="tier">
+      <h3 class="tier__title" data-i18n="work.tier_android">Android native - Kotlin</h3>
+      <ol class="tickets">
+        <li class="ticket reveal" data-preview="/img/showcase/aturdana.webp" data-preview-kind="phone" data-gallery="aturdana">
+          <span class="ticket__no">01</span>
+          <div class="ticket__body">
+            <a class="ticket__name" href="https://github.com/farelyudapratama/aturdana">Aturdana</a>
+            <p data-i18n="work.aturdana">Pengelolaan keuangan pribadi: transaksi, anggaran, pengingat tagihan.</p>
+          </div>
+          <span class="ticket__tag" data-i18n="work.aturdana_tag">Kotlin · Personal finance</span>
+        </li>
+        <li class="ticket reveal" data-preview="/img/showcase/listanime.webp" data-preview-kind="phone" data-gallery="listanime">
+          <span class="ticket__no">02</span>
+          <div class="ticket__body">
+            <a class="ticket__name" href="https://github.com/farelyudapratama/ListAnime">ListAnime</a>
+            <p data-i18n="work.listanime">Jelajah &amp; detail anime dari Jikan API. Multi-module dynamic feature, database terenkripsi SQLCipher, DI pakai Koin.</p>
+          </div>
+          <span class="ticket__tag">Multi-module · Room · Paging · Koin</span>
+        </li>
+        <li class="ticket reveal">
+          <span class="ticket__no">03</span>
+          <div class="ticket__body">
+            <a class="ticket__name" href="https://github.com/farelyudapratama/githubuserapp2">GitHub User App</a>
+            <p data-i18n="work.githubuser">Cari pengguna GitHub, lihat detail &amp; follower, simpan favorit di Room, atur tema lewat DataStore.</p>
+          </div>
+          <span class="ticket__tag">Retrofit · Room · Coroutines · DataStore</span>
+        </li>
+        <li class="ticket reveal">
+          <span class="ticket__no">04</span>
+          <div class="ticket__body">
+            <a class="ticket__name" href="https://github.com/farelyudapratama/ngeresep">ngeresep</a>
+            <p data-i18n="work.ngeresep">Aplikasi resep makanan Android native.</p>
+          </div>
+          <span class="ticket__tag">Kotlin · Android</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- bagian proyek web, backend, dan eksplorasi -->
+    <div class="tier">
+      <h3 class="tier__title" data-i18n="work.tier_web">Web, backend &amp; eksplorasi</h3>
+      <ul class="index">
+        <li class="reveal" data-preview="/img/showcase/apotek.webp" data-preview-kind="phone" data-gallery="apotek"><a href="https://github.com/Vin1606/apotek"><b>Apotek Digital</b> <span data-i18n="work.apotek_tag">Flutter · Dart · Provider · kolaborasi tim</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/stockup.webp" data-preview-kind="web" data-gallery="stockup"><a href="https://www.yudev.my.id/projects/stockup-inventory"><b>Stockup Inventory</b> <span>Vue.js · Express.js · MongoDB</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/media-cms.webp" data-preview-kind="web" data-gallery="media-cms"><a href="https://www.yudev.my.id/projects/media-cms"><b>Media CMS</b> <span data-i18n="work.mediacms_tag">Next.js · Headless CMS · editorial</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/devlens.webp" data-preview-kind="phone" data-gallery="devlens"><a href="https://github.com/farelyudapratama/devlens"><b>devlens</b> <span data-i18n="work.devlens_tag">JavaScript · ekstensi Chrome &amp; Firefox</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/backend-snapcal.webp" data-preview-kind="web" data-gallery="backend-snapcal"><a href="https://github.com/farelyudapratama/backend-snapcal"><b>backend-snapcal</b> <span>Express · MongoDB · Firebase Auth · Gemini · Groq · S3</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/yudevlanding.webp" data-preview-kind="web" data-gallery="yudevlanding"><a href="https://yudevlanding.vercel.app/"><b>yudevlanding</b> <span>Nuxt 3 · TypeScript</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/story-app-scss.webp" data-preview-kind="web" data-gallery="story-app-scss"><a href="https://github.com/farelyudapratama/story-app-scss"><b>story-app-scss</b> <span>Webpack · Lit · Bootstrap · SCSS</span></a></li>
+        <li class="reveal"><a href="https://github.com/farelyudapratama/flutter_restaurant"><b>flutter_restaurant</b> <span>Flutter · Provider · Sqflite</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/personal-notes.webp" data-preview-kind="web" data-gallery="personal-notes"><a href="https://github.com/farelyudapratama/personal-notes-react"><b>personal-notes-react</b> <span>React 19 · Vite</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/newyear.webp" data-preview-kind="web" data-gallery="newyear"><a href="https://github.com/farelyudapratama/newYear"><b>newYear</b> <span>HTML · CSS · JS</span></a></li>
+        <li class="reveal" data-preview="/img/showcase/portfolio-v1.webp" data-preview-kind="web" data-gallery="portfolio-v1"><a href="https://v1.farel.yudev.my.id/"><b>Portfolio v1</b> <span data-i18n="work.portfoliov1_tag">Vue 3 · TypeScript · GSAP · SPA interaktif</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 - Bagian Keahlian & Spesifikasi -->
+  <section class="spec" id="spek">
+    <div class="sechead">
+      <span class="sechead__no">02</span>
+      <h2 class="sechead__title" data-i18n="spec.title">Spesifikasi</h2>
+      <span class="sechead__meta" data-i18n="spec.meta">Spec sheet / perkakas kerja</span>
+    </div>
+    <dl class="specsheet">
+      <div class="specsheet__row reveal"><dt data-i18n="spec.lang">Bahasa</dt><dd>Kotlin · Python · PHP · JavaScript · HTML · CSS</dd></div>
+      <div class="specsheet__row reveal"><dt data-i18n="spec.mobile">Mobile</dt><dd>Android SDK · Jetpack Compose · Material Design · CameraX</dd></div>
+      <div class="specsheet__row reveal"><dt data-i18n="spec.data">Data &amp; Backend</dt><dd>Firebase (Auth, Firestore, Messaging) · RESTful API · Room · MongoDB · Express</dd></div>
+      <div class="specsheet__row reveal"><dt data-i18n="spec.tools">Tools</dt><dd>Android Studio · VS Code · Git &amp; GitHub · Gradle KTS</dd></div>
+      <div class="specsheet__row reveal"><dt data-i18n="spec.design">Desain</dt><dd>Figma · Adobe Photoshop</dd></div>
+    </dl>
+  </section>
+
+  <!-- 03 - Bagian Linimasa Perjalanan -->
+  <section class="road" id="jalan">
+    <div class="sechead">
+      <span class="sechead__no">03</span>
+      <h2 class="sechead__title" data-i18n="road.title">Perjalanan</h2>
+      <span class="sechead__meta" data-i18n="road.meta">2019 → sekarang</span>
+    </div>
+    <ol class="timeline">
+      <li class="reveal"><span class="timeline__v">v2019</span>
+        <div><h3 data-i18n="road.2019_t">Magang Engineering - Hotel Aryaduta Suites Semanggi</h3>
+        <p data-i18n="road.2019_d">Jul–Des 2019. Pemeliharaan preventif &amp; korektif sistem kelistrikan dan peralatan elektronik hotel.</p></div></li>
+      <li class="reveal"><span class="timeline__v">v2021</span>
+        <div><h3 data-i18n="road.2021_t">S1 Teknik Informatika - Universitas Gunadarma</h3>
+        <p data-i18n="road.2021_d">2021–2025. Fondasi rekayasa perangkat lunak dibentuk di sini, dari PHP sampai mobile.</p></div></li>
+      <li class="reveal"><span class="timeline__v">v2022</span>
+        <div><h3 data-i18n="road.2022_t">Petugas Pendataan Lapangan - Badan Pusat Statistik</h3>
+        <p data-i18n="road.2022_d">Okt–Nov 2022, Regsosek 2022 wilayah Pondok Bambu. Pendataan lapangan rumah ke rumah, melatih ketelitian dan disiplin ikut prosedur.</p></div></li>
+      <li class="reveal"><span class="timeline__v">v2024</span>
+        <div><h3 data-i18n="road.2024_t">Bangkit Academy - Android Development Path</h3>
+        <p data-i18n="road.2024_d">Feb–Jul 2024, by Google, GoTo &amp; Traveloka. Pelatihan intensif Android native. Capstone: <a href="https://github.com/farelyudapratama/SnapCal-MD">SnapCal-MD</a>, pendahulu SnapCal.</p></div></li>
+      <li class="reveal"><span class="timeline__v">v2025</span>
+        <div><h3 data-i18n="road.2025_t">Lulus &amp; buka babak baru</h3>
+        <p data-i18n="road.2025_d">Selesai S1, lanjut membangun produk sendiri: SnapCal, Lumimi, dan teman-temannya.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- 04 - Bagian Kontak -->
+  <section class="contact" id="kontak">
+    <div class="sechead sechead--light">
+      <span class="sechead__no">04</span>
+      <h2 class="sechead__title" data-i18n="contact.title">Gas ngobrol?</h2>
+      <span class="sechead__meta" data-i18n="contact.meta">Contact</span>
+    </div>
+    <p class="contact__lede" data-i18n="contact.lede">Buat posisi full-time, kontrak, kolaborasi proyek, atau sekadar ngobrolin Jetpack Compose. Aku balas cepat di email.</p>
+    <div class="contact__mail">
+      <a href="mailto:farelyudapratama51@gmail.com">farelyudapratama51@gmail.com</a>
+      <button class="copy" type="button" data-copy="farelyudapratama51@gmail.com" data-i18n="contact.copy">Salin</button>
+    </div>
+    <ul class="contact__links">
+      <li><a href="https://github.com/farelyudapratama">GitHub ↗</a></li>
+      <li><a href="https://www.linkedin.com/in/farel-yuda-pratama">LinkedIn ↗</a></li>
+      <li><a href="https://wa.me/6285959045569">WhatsApp ↗</a></li>
+      <li><a href="/cv-farel-yuda-pratama.pdf" data-i18n="contact.cv">CV (PDF) ↗</a></li>
+    </ul>
+    <p class="contact__loc" data-i18n="contact.loc">Jakarta Timur, Indonesia · UTC+7 · +62&#8209;859&#8209;5904&#8209;5569</p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <span>&copy; 2026 Farel Yuda Pratama</span>
+  <a href="#top" data-i18n="footer.top">Kembali ke atas &#8593;</a>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Farel Yuda Pratama",
+  "url": "https://farel.yudev.my.id/",
+  "image": "https://farel.yudev.my.id/img/avatar.png",
+  "jobTitle": "Developer multi-disiplin (Android, web & backend)",
+  "address": { "@type": "PostalAddress", "addressLocality": "Jakarta Timur", "addressCountry": "ID" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Universitas Gunadarma" },
+    { "@type": "EducationalOrganization", "name": "Bangkit Academy" }
+  ],
+  "knowsAbout": ["Kotlin", "Jetpack Compose", "Android", "Firebase", "JavaScript", "Backend"],
+  "email": "mailto:farelyudapratama51@gmail.com",
+  "sameAs": [
+    "https://github.com/farelyudapratama",
+    "https://www.linkedin.com/in/farel-yuda-pratama"
+  ]
+}
+</script>
+</body>
+</html>
