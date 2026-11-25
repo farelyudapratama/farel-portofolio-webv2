@@ -535,7 +535,8 @@ document.querySelectorAll('.copy').forEach((btn) => {
     if (href) { linkOpen.href = href; linkOpen.hidden = false; } else linkOpen.hidden = true;
     imgEl.src = urls[idx];
     imgEl.alt = name;
-    await decode(urls[idx]);
+    { const nx = urls[idx + 1]; if (nx) decode(nx); const pv2 = urls[idx - 1]; if (pv2) decode(pv2); }
+    await Promise.race([decode(urls[idx]), new Promise((r) => setTimeout(r, 220))]);
 
     // reset state dan props animasi sebelumnya
     gsap.set([frame, shot, imgEl, bg, ink], { clearProps: 'all' });
@@ -591,22 +592,22 @@ document.querySelectorAll('.copy').forEach((btn) => {
       tl.to(frame, {
         x: 0, y: 0, scale: 1, rotation: 0,
         clipPath: 'inset(-90px -90px -90px -90px)',
-        duration: 1, ease: 'expo.inOut',
-      }, 0.12);
+        duration: 0.7, ease: 'expo.inOut',
+      }, 0.08);
     } else {
       tl.fromTo(frame,
         { opacity: 0, scale: 0.68, y: 70, rotation: -6 },
-        { opacity: 1, scale: 1, y: 0, rotation: 0, duration: 1, ease: 'back.out(1.5)' }, 0.3);
+        { opacity: 1, scale: 1, y: 0, rotation: 0, duration: 0.7, ease: 'back.out(1.5)' }, 0.15);
     }
-    tl.fromTo(imgEl, { scale: 1.14 }, { scale: 1, duration: 1.2, ease: 'power3.out' }, 0.12)
-      .to(corners, { opacity: 1, scale: 1, duration: 0.55, stagger: 0.07, ease: 'back.out(2.6)' }, 0.8)
-      .to(titleChars, { yPercent: 0, rotation: 0, duration: 0.7, stagger: 0.028, ease: 'power4.out' }, 0.65)
-      .fromTo([countEl, linkOpen], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.09, ease: 'power2.out' }, 0.85)
-      .fromTo(btnPrev, { x: -60 }, { x: 0, duration: 0.7, ease: 'back.out(2)' }, 0.75)
-      .fromTo(btnNext, { x: 60 }, { x: 0, duration: 0.7, ease: 'back.out(2)' }, 0.8)
-      .fromTo(btnClose, { rotation: -120, scale: 0 }, { rotation: 0, scale: 1, duration: 0.7, ease: 'back.out(2.2)' }, 0.65)
-      .to([btnPrev, btnNext, btnClose], { opacity: 1, duration: 0.3 }, 0.7);
-    if (dots.length) tl.fromTo(dots, { scaleX: 0 }, { scaleX: 1, opacity: 1, duration: 0.45, stagger: 0.06, ease: 'back.out(2)' }, 0.9);
+    tl.fromTo(imgEl, { scale: 1.14 }, { scale: 1, duration: 0.8, ease: 'power3.out' }, 0.08)
+      .to(corners, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.05, ease: 'back.out(2.6)' }, 0.5)
+      .to(titleChars, { yPercent: 0, rotation: 0, duration: 0.7, stagger: 0.028, ease: 'power4.out' }, 0.35)
+      .fromTo([countEl, linkOpen], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out' }, 0.45)
+      .fromTo(btnPrev, { x: -60 }, { x: 0, duration: 0.5, ease: 'back.out(2)' }, 0.4)
+      .fromTo(btnNext, { x: 60 }, { x: 0, duration: 0.5, ease: 'back.out(2)' }, 0.45)
+      .fromTo(btnClose, { rotation: -120, scale: 0 }, { rotation: 0, scale: 1, duration: 0.5, ease: 'back.out(2.2)' }, 0.35)
+      .to([btnPrev, btnNext, btnClose], { opacity: 1, duration: 0.3 }, 0.4);
+    if (dots.length) tl.fromTo(dots, { scaleX: 0 }, { scaleX: 1, opacity: 1, duration: 0.35, stagger: 0.04, ease: 'back.out(2)' }, 0.55);
     syncDots();
     return true;
   }
@@ -628,7 +629,7 @@ document.querySelectorAll('.copy').forEach((btn) => {
   function close() {
     if (!isOpen || busy) return;
     if (opening && openTl) { // jika ditutup saat proses membuka, balik arah timeline
-      ready = false; busy = true; openTl.timeScale(1.8).reverse(); return;
+      ready = false; busy = true; openTl.timeScale(2.5).reverse(); return;
     }
     busy = true; ready = false;
     zoomed = false;
@@ -644,10 +645,12 @@ document.querySelectorAll('.copy').forEach((btn) => {
     const cy = r ? r.top + r.height / 2 : (from?.pt?.y ?? innerHeight / 2);
 
     const tl = gsap.timeline({ onComplete: finish });
-    tl.to([btnClose, btnPrev, btnNext], { opacity: 0, scale: 0.5, duration: 0.25, ease: 'power2.in', stagger: 0.03 }, 0)
-      .to([countEl, linkOpen, ...dots], { opacity: 0, y: 10, duration: 0.2 }, 0)
-      .to(titleChars, { yPercent: -125, duration: 0.3, stagger: 0.012, ease: 'power2.in' }, 0)
-      .to(corners, { scale: 0, opacity: 0, duration: 0.25, stagger: 0.03 }, 0);
+    tl.to([btnClose, btnPrev, btnNext], { opacity: 0, scale: 0.5, duration: 0.18, ease: 'power2.in', stagger: 0.02 }, 0)
+      .to([countEl, linkOpen, ...dots], { opacity: 0, y: 10, duration: 0.15 }, 0)
+      .to(titleChars, { yPercent: -125, duration: 0.22, stagger: 0.01, ease: 'power2.in' }, 0)
+      .to(corners, { scale: 0, opacity: 0, duration: 0.18, stagger: 0.02 }, 0);
+    // thumbnail asal dikembalikan di awal, bukan menunggu dialog hilang total
+    if (from?.srcEl) tl.to(from.srcEl, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.1);
 
     if (r && r.width > 40 && fr.width > 0) {
       const s = r.width / fr.width;
@@ -656,13 +659,13 @@ document.querySelectorAll('.copy').forEach((btn) => {
       tl.to(frame, {
         x: r.left - fr.left, y: r.top - fr.top, scale: s, rotation: -1.5,
         clipPath: `inset(0px 0px ${cropPx}px 0px)`,
-        duration: 0.7, ease: 'expo.inOut',
-      }, 0.08);
+        duration: 0.45, ease: 'power3.inOut',
+      }, 0.05);
     } else {
-      tl.to(frame, { scale: 0.72, y: 60, opacity: 0, rotation: 4, duration: 0.4, ease: 'power3.in' }, 0.08);
+      tl.to(frame, { scale: 0.72, y: 60, opacity: 0, rotation: 4, duration: 0.3, ease: 'power3.in' }, 0.05);
     }
-    tl.to(bg, { clipPath: circle(0, cx, cy), duration: 0.6, ease: 'power3.inOut' }, 0.3)
-      .to(ink, { clipPath: circle(0, cx, cy), duration: 0.6, ease: 'power3.inOut' }, 0.38);
+    tl.to(bg, { clipPath: circle(0, cx, cy), duration: 0.45, ease: 'power3.inOut' }, 0.12)
+      .to(ink, { clipPath: circle(0, cx, cy), duration: 0.45, ease: 'power3.inOut' }, 0.18);
   }
 
   /*  transisi pergantian gambar (slide next / prev) */
@@ -856,6 +859,20 @@ document.querySelectorAll('.copy').forEach((btn) => {
         if (e.target === t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); t.click(); }
       });
     }
+    // pemanas: manifest + 2 gambar pertama diunduh saat hover/fokus,
+    // jadi klik tidak menunggu fetch + decode dari nol
+    let warmed = false;
+    const warm = () => {
+      if (warmed) return; warmed = true;
+      const pv0 = t.getAttribute('data-preview');
+      if (pv0) decode(pv0);
+      getManifest().then((mf) => {
+        const urls = [...new Set([...own, ...((mf && mf[key]) || [])])];
+        (urls.length ? urls : (pv0 ? [pv0] : [])).slice(0, 2).forEach((u) => decode(u));
+      });
+    };
+    t.addEventListener('pointerenter', warm, { passive: true });
+    t.addEventListener('focusin', warm);
   });
   (window.requestIdleCallback || ((fn) => setTimeout(fn, 1200)))(() => getManifest());
 })();
